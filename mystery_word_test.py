@@ -1,79 +1,41 @@
-from mystery_word import print_intro
-from mystery_word import get_difficulty
 from mystery_word import get_word_list
 from mystery_word import clean_sentence
-from mystery_word import get_word
-from mystery_word import get_tries
-from mystery_word import print_hints
-from mystery_word import display_word
-from mystery_word import get_guess
 from mystery_word import is_repeat
 from mystery_word import is_win
-from mystery_word import print_final
-from mystery_word import new_game
-
-
-def test_print_intro():
-    assert
-
-
-def test_get_difficulty():
-    assert
 
 
 def test_get_word_list():
-    assert
+    assert get_word_list("easy", file='simple.txt') ==["quick", "brown",
+                                                       "jumped", "over", "lazy",
+                                                       "spot"]
+    assert get_word_list("medium", file='simple.txt') == ["jumped", "bananas",
+                                                          "function"]
+    assert get_word_list("hard", file='simple.txt') == ["indivisible",
+                                                        "function"]
 
 
 def test_clean_sentence():
-    assert
-
-
-def test_get_word():
-    assert
-
-
-def test_get_tries():
-    assert
-
-
-def test_print_hints():
-    assert
-
-
-def test_display_word():
-    assert
-
-
-def test_get_guess():
-    assert
+    assert clean_sentence("easy") == "easy"
+    assert clean_sentence("a space") == "aspace"
+    assert clean_sentence("Capitalized") == "capitalized"
+    assert clean_sentence("$p3c*al~") == "pcal"
+    assert clean_sentence("@LL 0p7*ons") == "llpons"
 
 
 def test_is_repeat():
-    assert
+    assert is_repeat('a', ['a'], ['b'], 8) == True
+    assert is_repeat('b', ['a'], ['b'], 8) == True
+    assert is_repeat('c', ['a'], ['b'], 8) == False
 
 
 def test_is_win():
-    assert
-
-def test_print_final():
-    assert
-
-
-def test_new_game():
-    assert
+    assert is_win("cat", ['c', 'a', 't']) == True
+    assert is_win("dog", ['d', 'g']) == False
+    assert is_win("poop", ['p', 'o']) == True
+    assert is_win("bob", ['b']) == False
 
 
-test_print_intro()
-test_get_difficulty()
-test_get_word_list()
-test_clean_sentence()
-test_get_word()
-test_get_tries()
-test_print_hints()
-test_display_word()
-test_get_guess()
-test_is_repeat()
-test_is_win()
-test_print_final()
-test_new_game()
+ test_get_word_list()
+ test_clean_sentence()
+ test_is_repeat()
+ test_is_win()
