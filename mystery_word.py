@@ -215,6 +215,8 @@ def main():
     # change the above args to (my_level, file="sample.txt") in this folder
     # or provide an absolute path for other source files than the dictionary
     # This is great if you'd like to provide a source at an easier reading level
+    # Still need to figure out how to return usable filename
+    # Also need to possibly separately remove headers, etc from source files
     my_word = get_word(my_word_list)
 
     print_hints(my_word)
